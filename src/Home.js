@@ -47,8 +47,9 @@ const Home = () => {
           height: "40vh", // Prend un tiers de la page en desktop
         }}
       >
-        <div className="text-center text-white d-flex justify-content-center align-items-center h-100">
-          <h1>Bienvenue sur Mon Portfolio</h1>
+        <div className="text-center text-white d-flex flex-column justify-content-center align-items-center h-100">
+          <h1 style={{ color: "#0d6efd" }}>Bonjour, je suis John Doe</h1>
+          <p style={{ color: "#0d6efd" }}>Développeur web full stack</p>
         </div>
       </header>
 

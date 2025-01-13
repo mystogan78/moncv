@@ -8,6 +8,7 @@ import Blog from "./blog";
 import Mentions from "./Mentions";
 import Offre from "./Offre";
 import Footer from "./Footer"; // Footer global
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 function App() {
   return (

@@ -4,10 +4,14 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   const [activeLink, setActiveLink] = useState(null);
 
-  // Fonction pour gérer le clic sur un lien et définir l'état actif
+  // Fonction pour gérer le clic sur un lien
   const handleLinkClick = (linkName) => {
     setActiveLink(linkName);
   };
+
+  // Fonction pour déterminer les classes dynamiques
+  const getLinkClass = (linkName) =>
+    `nav-link ${activeLink === linkName ? "text-primary" : "text-dark"}`;
 
   return (
     <footer className="text-dark py-4" style={{ backgroundColor: "#EEE" }}>
@@ -30,7 +34,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="me-3 text-dark"
               >
-                <i className="bi bi-github fs-4"></i> {/* Icône GitHub */}
+                <i className="bi bi-github fs-4"></i>
               </a>
               <a
                 href="https://twitter.com"
@@ -38,7 +42,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="me-3 text-dark"
               >
-                <i className="bi bi-twitter fs-4"></i> {/* Icône Twitter */}
+                <i className="bi bi-twitter fs-4"></i>
               </a>
               <a
                 href="https://linkedin.com"
@@ -46,7 +50,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="text-dark"
               >
-                <i className="bi bi-linkedin fs-4"></i> {/* Icône LinkedIn */}
+                <i className="bi bi-linkedin fs-4"></i>
               </a>
             </div>
           </div>
@@ -55,11 +59,9 @@ const Footer = () => {
           <div className="col-md-3">
             <h5>Liens utiles</h5>
             <ul className="list-unstyled">
-              <li className="nav-item">
+              <li>
                 <Link
-                  className={`nav-link ${
-                    activeLink === "Accueil" ? "text-primary" : "text-dark"
-                  }`}
+                  className={getLinkClass("Accueil")}
                   to="/"
                   onClick={() => handleLinkClick("Accueil")}
                 >
@@ -68,9 +70,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  className={`nav-link ${
-                    activeLink === "À propos" ? "text-primary" : "text-dark"
-                  }`}
+                  className={getLinkClass("À propos")}
                   to="/About"
                   onClick={() => handleLinkClick("À propos")}
                 >
@@ -79,9 +79,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  className={`nav-link ${
-                    activeLink === "Services" ? "text-primary" : "text-dark"
-                  }`}
+                  className={getLinkClass("Services")}
                   to="/Offre"
                   onClick={() => handleLinkClick("Services")}
                 >
@@ -90,9 +88,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  className={`nav-link ${
-                    activeLink === "Me contacter" ? "text-primary" : "text-dark"
-                  }`}
+                  className={getLinkClass("Me contacter")}
                   to="/contact"
                   onClick={() => handleLinkClick("Me contacter")}
                 >
@@ -101,11 +97,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  className={`nav-link ${
-                    activeLink === "Mentions légales"
-                      ? "text-primary"
-                      : "text-dark"
-                  }`}
+                  className={getLinkClass("Mentions légales")}
                   to="/Mentions"
                   onClick={() => handleLinkClick("Mentions légales")}
                 >
@@ -121,9 +113,7 @@ const Footer = () => {
             <ul className="list-unstyled">
               <li>
                 <Link
-                  className={`text-decoration-none ${
-                    activeLink === "Fresh food" ? "text-primary" : "text-dark"
-                  }`}
+                  className={getLinkClass("Fresh food")}
                   to="/about"
                   onClick={() => handleLinkClick("Fresh food")}
                 >
@@ -132,11 +122,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  className={`text-decoration-none ${
-                    activeLink === "Restaurant Akira"
-                      ? "text-primary"
-                      : "text-dark"
-                  }`}
+                  className={getLinkClass("Restaurant Akira")}
                   to="/about"
                   onClick={() => handleLinkClick("Restaurant Akira")}
                 >
@@ -145,11 +131,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  className={`text-decoration-none ${
-                    activeLink === "Espace bien-être"
-                      ? "text-primary"
-                      : "text-dark"
-                  }`}
+                  className={getLinkClass("Espace bien-être")}
                   to="/About"
                   onClick={() => handleLinkClick("Espace bien-être")}
                 >
@@ -165,11 +147,7 @@ const Footer = () => {
             <ul className="list-unstyled">
               <li>
                 <Link
-                  className={`text-decoration-none ${
-                    activeLink === "Coder son site en HTML/CSS"
-                      ? "text-primary"
-                      : "text-dark"
-                  }`}
+                  className={getLinkClass("Coder son site en HTML/CSS")}
                   to="/blog"
                   onClick={() => handleLinkClick("Coder son site en HTML/CSS")}
                 >
@@ -178,12 +156,8 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  className={`text-decoration-none ${
-                    activeLink === "Vendre ses produits sur le web"
-                      ? "text-primary"
-                      : "text-dark"
-                  }`}
-                  to="/articles/ecommerce"
+                  className={getLinkClass("Vendre ses produits sur le web")}
+                  to="/blog"
                   onClick={() =>
                     handleLinkClick("Vendre ses produits sur le web")
                   }
@@ -193,11 +167,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  className={`text-decoration-none ${
-                    activeLink === "Se positionner sur Google"
-                      ? "text-primary"
-                      : "text-dark"
-                  }`}
+                  className={getLinkClass("Se positionner sur Google")}
                   to="/blog"
                   onClick={() => handleLinkClick("Se positionner sur Google")}
                 >
